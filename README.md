@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# EcoSphere — Daily Carbon Footprint Logger & Virtual Forest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**EcoSphere** is a premium, gamified web application designed to help users track, understand, and reduce their daily carbon footprint. Built on science-backed models (EPA, DEFRA, Science 2018), it encourages daily eco-friendly micro-habits through visual, interactive rewards.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 Core Features
 
-## React Compiler
+### 1. Daily Activity Logger
+* **Themed Trackers:** Segmented forms for Transportation, Diet choices, Household Energy (Heating/AC/Electronics), and Waste & Consumption.
+* **Custom Eco-Actions:** Register custom green habits (like planting trees or avoiding elevators) to receive instant footprint deductions.
+* **Live Footprint Preview:** Dynamically displays estimated daily carbon output in kilograms as you adjust the sliders.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. Expressive Cartoon Mascot (EcoSapling)
+Features a responsive, cute anime-style mascot in the corner that reacts dynamically to your logging habits:
+* **Gloomy Sprout 🌧️:** Active when no habits are logged and cumulative carbon reduction is low. Drooping leaves and tears.
+* **Chilling Sapling 💤:** Active when no habits are logged but cumulative carbon is high. Closed relaxed eyes and floating sleep Zzz's.
+* **Happy Sapling 🌱:** Active when you log carbon savings today. Waving hands and growing red flowers.
+* **Ecstatic Canopy 🌸✨:** Active when you log high daily carbon savings (>= 5 kg). Heart eyes, star sparkles, pink blossoms, and victory gestures.
+* *Bonus:* The mascot's glossy eyes track your mouse cursor in real-time!
 
-## Expanding the ESLint configuration
+### 3. Weekly Logs History
+* Track footprint trends over time with custom-designed visual charts.
+* Complete logs list showing dates, daily footprints, savings, and XP earned.
+* Clear records utility to reset history.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 4. My Virtual Forest
+* Gamified dashboard where trees grow, develop, and bloom into a lush forest based on your cumulative carbon savings and experience points (XP).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 5. Cinematic Entrance & facts
+* When loading the application, you are presented with a deep-green, animated cinematic transition page featuring a pulsing globe, rising atmosphere particles, and a randomly selected, intriguing environmental fact.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🛠️ Tech Stack
+* **Framework:** React 19 + Vite 8
+* **Language:** TypeScript
+* **Styling:** Vanilla CSS (Tailored HSL theme colors, glassmorphism, responsive grids, and micro-animations)
+* **Icons:** Lucide React
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Prerequisites
+Ensure you have [Node.js](https://nodejs.org/) installed.
+
+### Installation
+1. Install project dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Run the local development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open your browser and navigate to the address shown (usually `http://localhost:5173/`).
+
+---
+
+## 💾 Data Persistence
+All log history, streak metrics, XP points, and virtual forest growth are persisted locally inside the browser's **`localStorage`**. Your data remains fully intact across tab closures, refreshes, and reboots.
+
