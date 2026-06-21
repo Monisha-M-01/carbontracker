@@ -6,6 +6,9 @@
 
 ## 📋 Hackathon Submission Details
 
+<details>
+  <summary><b>Click to expand Submission Details (Vertical, Approach, Logic, Assumptions)</b></summary>
+
 ### 1. Chosen Vertical
 * **Vertical:** Environmental Sustainability & Daily Eco-Habit Tracking
 * **Deployment Status:** Automated build and deployment active via GitHub Pages & Actions.
@@ -35,6 +38,8 @@
 * **Daily Baseline:** The standard benchmark daily carbon footprint is assumed to be `18.0 kg CO₂e`.
 * **Tree Value:** One grown tree is earned for every `20.0 kg` of cumulative carbon saved.
 * **Client-Only Architecture:** Designed as a single-page React app using `localStorage` for high performance, zero backend lag, and privacy.
+
+</details>
 
 ---
 
