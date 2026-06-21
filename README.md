@@ -4,6 +4,41 @@
 
 ---
 
+## 📋 Hackathon Submission Details
+
+### 1. Chosen Vertical
+* **Vertical:** Environmental Sustainability & Daily Eco-Habit Tracking
+* **Target Persona:** Conscious citizens looking for an engaging, gamified daily assistant to track, understand, and reduce their individual carbon footprint.
+
+### 2. Approach & Logic
+* **Science-Backed Emissions Modeling:** The application calculates daily carbon footprint using coefficients inspired by EPA, DEFRA, and Poore & Nemecek (Science, 2018):
+  * **Transportation:** Emits based on fuel type (e.g., Petrol: `0.19 kg/km`, Diesel: `0.18 kg/km`, EV: `0.05 kg/km`, Transit: `0.04 kg/km`, Active: `0 kg/km`).
+  * **Diet Choices:** Baseline daily diet carbon footprint (Vegan: `1.8 kg`, Vegetarian: `2.8 kg`, Average: `5.5 kg`, High-Meat: `8.0 kg`).
+  * **Household Energy:** Heating/AC usage at `1.2 kg/hour`, and active electronics/appliances at `0.45 kg/hour`.
+  * **Waste & Shopping:** Garbage output is `1.5 kg/day` baseline, reduced by `0.6 kg` if recycled/composted; shopping purchases add `1.5 kg` per item.
+  * **Custom Action Deduction:** Subtracts `2.0 kg` per registered custom green habit.
+* **Responsive Mascot Companion (EcoSapling):** Built with SVG and React, this mascot reacts to your mouse cursor by rotating its body and adjusting its pupil direction. Its visual mood changes based on daily logging history:
+  * *Gloomy Sprout (🌧️):* No logs today and low total savings. Features drooping arms and tear particles.
+  * *Chilling Sapling (💤):* No logs today but high total savings. Features sleeping eyes and floating Zzz's.
+  * *Happy Sapling (🌱):* Daily carbon savings > 0 kg. Features waving arms and red flowers.
+  * *Ecstatic Canopy (🌸✨):* Daily carbon savings >= 5 kg. Features victory gestures, heart eyes, and pink blossoms.
+* **Virtual Forest Translation:** Every 20 kg of carbon saved (representing the average annual carbon absorption of a single mature tree) sprouts and grows a new tile in the virtual forest grid (Sprout -> Sapling -> Pine -> Oak).
+
+### 3. How the Solution Works
+1. **Cinematic Startup Page:** A dark-green immersive entrance screen with particle effects and random environmental facts.
+2. **Activity Logger:** Sliders, dropdowns, and cards let you quickly log energy, food, and travel. A real-time preview panel recalculates as you tweak values.
+3. **Logs History & Trends:** Persistent daily logs list and a clean SVG-drawn trend chart for the last 7 days.
+4. **Virtual Forest Canvas:** Gamified visual representation of lifetime carbon savings, tracking tree maturation levels and XP metrics.
+
+### 4. Assumptions Made
+* **Daily Baseline:** The standard benchmark daily carbon footprint is assumed to be `18.0 kg CO₂e`.
+* **Tree Value:** One grown tree is earned for every `20.0 kg` of cumulative carbon saved.
+* **Client-Only Architecture:** Designed as a single-page React app using `localStorage` for high performance, zero backend lag, and privacy.
+
+---
+
+---
+
 ## 🌟 Core Features
 
 ### 1. Daily Activity Logger
