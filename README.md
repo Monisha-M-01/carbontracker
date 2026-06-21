@@ -8,6 +8,7 @@
 
 ### 1. Chosen Vertical
 * **Vertical:** Environmental Sustainability & Daily Eco-Habit Tracking
+* **Deployment Status:** Automated build and deployment active via GitHub Pages & Actions.
 * **Target Persona:** Conscious citizens looking for an engaging, gamified daily assistant to track, understand, and reduce their individual carbon footprint.
 
 ### 2. Approach & Logic
