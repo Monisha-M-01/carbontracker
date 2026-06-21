@@ -121,8 +121,9 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
             </div>
             <div className="grid-2">
               <div className="form-group" style={{ margin: 0 }}>
-                <label className="form-label">Transport Mode</label>
+                <label htmlFor="transportMode" className="form-label">Transport Mode</label>
                 <select
+                  id="transportMode"
                   value={transportMode}
                   onChange={(e) => setTransportMode(e.target.value as any)}
                   className="form-select"
@@ -139,10 +140,11 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
               {transportMode !== 'active' && (
                 <div className="slider-container" style={{ margin: 0 }}>
                   <div className="slider-header">
-                    <span className="form-label">Distance Driven/Ridden</span>
+                    <label htmlFor="transportDistance" className="form-label">Distance Driven/Ridden</label>
                     <span className="slider-value" style={{ color: 'var(--secondary)' }}>{transportDistance} km</span>
                   </div>
                   <input
+                    id="transportDistance"
                     type="range"
                     min="0"
                     max="150"
@@ -151,6 +153,9 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
                     onChange={(e) => setTransportDistance(parseInt(e.target.value))}
                     className="custom-slider"
                     style={{ background: 'rgba(6, 182, 212, 0.15)' }}
+                    aria-valuemin={0}
+                    aria-valuemax={150}
+                    aria-valuenow={transportDistance}
                   />
                 </div>
               )}
@@ -163,11 +168,15 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
               <Utensils size={18} color="var(--accent)" />
               <h3 style={{ fontSize: '1rem', fontWeight: '700' }}>Diet Choices Today</h3>
             </div>
-            <div className="grid-2">
+            <div className="grid-2" role="radiogroup" aria-label="Diet Choices Today">
               <div 
                 className={`option-card ${dietType === 'high-meat' ? 'selected' : ''}`}
                 style={{ borderColor: 'rgba(245, 158, 11, 0.15)' }}
                 onClick={() => setDietType('high-meat')}
+                role="radio"
+                aria-checked={dietType === 'high-meat'}
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setDietType('high-meat'); } }}
               >
                 <div className="checkbox-circle" style={{ borderColor: 'rgba(245, 158, 11, 0.5)' }} />
                 <div>
@@ -179,6 +188,10 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
                 className={`option-card ${dietType === 'average' ? 'selected' : ''}`}
                 style={{ borderColor: 'rgba(245, 158, 11, 0.15)' }}
                 onClick={() => setDietType('average')}
+                role="radio"
+                aria-checked={dietType === 'average'}
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setDietType('average'); } }}
               >
                 <div className="checkbox-circle" style={{ borderColor: 'rgba(245, 158, 11, 0.5)' }} />
                 <div>
@@ -190,6 +203,10 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
                 className={`option-card ${dietType === 'vegetarian' ? 'selected' : ''}`}
                 style={{ borderColor: 'rgba(245, 158, 11, 0.15)' }}
                 onClick={() => setDietType('vegetarian')}
+                role="radio"
+                aria-checked={dietType === 'vegetarian'}
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setDietType('vegetarian'); } }}
               >
                 <div className="checkbox-circle" style={{ borderColor: 'rgba(245, 158, 11, 0.5)' }} />
                 <div>
@@ -201,6 +218,10 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
                 className={`option-card ${dietType === 'vegan' ? 'selected' : ''}`}
                 style={{ borderColor: 'rgba(245, 158, 11, 0.15)' }}
                 onClick={() => setDietType('vegan')}
+                role="radio"
+                aria-checked={dietType === 'vegan'}
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setDietType('vegan'); } }}
               >
                 <div className="checkbox-circle" style={{ borderColor: 'rgba(245, 158, 11, 0.5)' }} />
                 <div>
@@ -220,10 +241,11 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
             <div className="grid-2">
               <div className="slider-container" style={{ margin: 0 }}>
                 <div className="slider-header">
-                  <span className="form-label">Heating/AC Hours</span>
+                  <label htmlFor="heatingHours" className="form-label">Heating/AC Hours</label>
                   <span className="slider-value" style={{ color: '#eab308' }}>{heatingHours} hrs</span>
                 </div>
                 <input
+                  id="heatingHours"
                   type="range"
                   min="0"
                   max="12"
@@ -231,15 +253,19 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
                   onChange={(e) => setHeatingHours(parseInt(e.target.value))}
                   className="custom-slider"
                   style={{ background: 'rgba(234, 179, 8, 0.15)' }}
+                  aria-valuemin={0}
+                  aria-valuemax={12}
+                  aria-valuenow={heatingHours}
                 />
               </div>
 
               <div className="slider-container" style={{ margin: 0 }}>
                 <div className="slider-header">
-                  <span className="form-label">Active Electronics/AC</span>
+                  <label htmlFor="electricityHours" className="form-label">Active Electronics/AC</label>
                   <span className="slider-value" style={{ color: '#eab308' }}>{electricityHours} hrs</span>
                 </div>
                 <input
+                  id="electricityHours"
                   type="range"
                   min="1"
                   max="18"
@@ -247,6 +273,9 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
                   onChange={(e) => setElectricityHours(parseInt(e.target.value))}
                   className="custom-slider"
                   style={{ background: 'rgba(234, 179, 8, 0.15)' }}
+                  aria-valuemin={1}
+                  aria-valuemax={18}
+                  aria-valuenow={electricityHours}
                 />
               </div>
             </div>
@@ -263,6 +292,10 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
                 className={`option-card ${recycled ? 'selected' : ''}`}
                 style={{ borderColor: 'rgba(99, 102, 241, 0.15)' }}
                 onClick={() => setRecycled(!recycled)}
+                role="checkbox"
+                aria-checked={recycled}
+                tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setRecycled(!recycled); } }}
               >
                 <div className="checkbox-circle" style={{ borderColor: 'rgba(99, 102, 241, 0.5)' }} />
                 <div>
@@ -273,10 +306,11 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
 
               <div className="slider-container" style={{ margin: 0 }}>
                 <div className="slider-header">
-                  <span className="form-label">New Goods/Items Purchased</span>
+                  <label htmlFor="purchases" className="form-label">New Goods/Items Purchased</label>
                   <span className="slider-value" style={{ color: 'var(--info)' }}>{purchases} {purchases === 1 ? 'item' : 'items'}</span>
                 </div>
                 <input
+                  id="purchases"
                   type="range"
                   min="0"
                   max="5"
@@ -284,6 +318,9 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
                   onChange={(e) => setPurchases(parseInt(e.target.value))}
                   className="custom-slider"
                   style={{ background: 'rgba(99, 102, 241, 0.15)' }}
+                  aria-valuemin={0}
+                  aria-valuemax={5}
+                  aria-valuenow={purchases}
                 />
               </div>
             </div>
@@ -296,8 +333,9 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
               <h3 style={{ fontSize: '1rem', fontWeight: '700' }}>Custom Eco-Action</h3>
             </div>
             <div className="form-group" style={{ margin: 0 }}>
-              <label className="form-label">Type any other custom green action you did today (e.g. used canvas bags):</label>
+              <label htmlFor="customAction" className="form-label">Type any other custom green action you did today (e.g. used canvas bags):</label>
               <input
+                id="customAction"
                 type="text"
                 placeholder="e.g. Planted a sapling, turned off power strip, did not use elevator..."
                 value={customAction}

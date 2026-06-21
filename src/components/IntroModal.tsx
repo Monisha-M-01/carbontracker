@@ -94,6 +94,10 @@ export const IntroModal: React.FC<IntroModalProps> = ({ onComplete }) => {
             className="heartbeat-pulse"
             onClick={handleFinish}
             title="Click to start rebuilding"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleFinish(); } }}
+            aria-label="Begin Journey"
           >
             <Globe size={42} color="var(--primary-light)" style={{ filter: 'drop-shadow(0 0 8px rgba(52, 211, 153, 0.5))' }} />
           </div>

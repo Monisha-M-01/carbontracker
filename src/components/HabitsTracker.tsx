@@ -128,6 +128,9 @@ export const HabitsTracker: React.FC<HabitsTrackerProps> = ({
                   className="option-card"
                   style={{ justifyContent: 'space-between', padding: '1rem 1.25rem' }}
                   onClick={() => onLogAction(action.name, action.saving, action.xp)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onLogAction(action.name, action.saving, action.xp); } }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                     <span style={{ fontSize: '1.5rem' }}>{action.icon}</span>
@@ -180,6 +183,10 @@ export const HabitsTracker: React.FC<HabitsTrackerProps> = ({
                     key={habit.id}
                     className={`option-card ${isSelected ? 'selected' : ''}`}
                     onClick={() => toggleHabit(habit.id)}
+                    role="checkbox"
+                    aria-checked={isSelected}
+                    tabIndex={0}
+                    onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleHabit(habit.id); } }}
                   >
                     <div className="checkbox-circle" />
                     <div style={{ flex: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>

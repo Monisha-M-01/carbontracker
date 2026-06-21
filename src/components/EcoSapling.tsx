@@ -79,6 +79,11 @@ export const EcoSapling: React.FC<EcoSaplingProps> = ({ savedCarbon, todaySaving
       className={`sapling-container ${bubbleClicked ? 'active' : ''}`}
       onClick={() => setBubbleClicked(!bubbleClicked)}
       title="Click for assistant options"
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setBubbleClicked(!bubbleClicked); } }}
+      aria-label="EcoSapling Mascot Companion"
+      aria-expanded={bubbleClicked}
     >
       {/* Cartoon Tree SVG */}
       <div 

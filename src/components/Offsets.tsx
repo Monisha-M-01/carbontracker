@@ -90,10 +90,11 @@ export const Offsets: React.FC<OffsetsProps> = ({ totalEmissionsTonnes, onOffset
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
           <div className="slider-container" style={{ margin: 0 }}>
             <div className="slider-header">
-              <span className="form-label">Offset Coverage Percentage</span>
+              <label htmlFor="offsetPercentage" className="form-label">Offset Coverage Percentage</label>
               <span className="slider-value" style={{ color: 'var(--secondary)' }}>{offsetPercentage}%</span>
             </div>
             <input
+              id="offsetPercentage"
               type="range"
               min="10"
               max="100"
@@ -101,6 +102,9 @@ export const Offsets: React.FC<OffsetsProps> = ({ totalEmissionsTonnes, onOffset
               value={offsetPercentage}
               onChange={(e) => setOffsetPercentage(parseInt(e.target.value))}
               className="custom-slider"
+              aria-valuemin={10}
+              aria-valuemax={100}
+              aria-valuenow={offsetPercentage}
             />
           </div>
 
@@ -118,7 +122,7 @@ export const Offsets: React.FC<OffsetsProps> = ({ totalEmissionsTonnes, onOffset
         {/* Project Selector List */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <h2 style={{ fontSize: '1.25rem' }}>Choose an Offset Project</h2>
-          <div className="grid-2">
+          <div className="grid-2" role="radiogroup" aria-label="Choose an Offset Project">
             {projects.map((project) => {
               const isSelected = selectedProjectId === project.id;
               return (
@@ -130,6 +134,10 @@ export const Offsets: React.FC<OffsetsProps> = ({ totalEmissionsTonnes, onOffset
                     border: isSelected ? '2px solid var(--primary)' : '1px solid var(--border-color)',
                   }}
                   onClick={() => setSelectedProjectId(project.id)}
+                  role="radio"
+                  aria-checked={isSelected}
+                  tabIndex={0}
+                  onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedProjectId(project.id); } }}
                 >
                   <img src={project.image} alt={project.name} className="offset-project-img" />
                   <div className="offset-project-content">

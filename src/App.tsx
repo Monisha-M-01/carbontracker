@@ -99,7 +99,7 @@ function App() {
     } else {
       // Append new daily log
       const newEntry: HistoryEntry = {
-        id: Math.random().toString(36).substr(2, 9),
+        id: crypto.randomUUID(),
         date: todayStr,
         footprint,
         savings,
