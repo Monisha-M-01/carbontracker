@@ -88,7 +88,7 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>CO₂e footprint preview</span>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: '1px solid var(--border-color)', borderRight: '1px solid var(--border-color)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: '1px solid var(--border-color)', borderRight: '1px solid var(--border-color)', paddingLeft: '0.75rem', paddingRight: '0.75rem' }}>
           <span className="metric-label">Daily Avg Target</span>
           <span className="metric-value" style={{ color: 'white' }}>
             5.5 <span style={{ fontSize: '1.25rem', fontWeight: '500' }}>kg</span>
@@ -379,12 +379,14 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
       {showSuccess && lastCalculation && (
         <div className="glass-card animate-fade-in" style={{
           position: 'fixed',
-          bottom: '2rem',
-          right: '2rem',
+          bottom: '1rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
           borderLeft: '4px solid var(--primary)',
           background: 'var(--bg-surface-solid)',
           boxShadow: '0 10px 45px rgba(2, 10, 5, 0.7)',
-          padding: '1.25rem 2rem',
+          padding: '1.25rem 1.5rem',
+          width: 'calc(100% - 2rem)',
           maxWidth: '380px',
           zIndex: 1000,
         }}>

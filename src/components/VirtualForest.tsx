@@ -76,21 +76,21 @@ export const VirtualForest: React.FC<VirtualForestProps> = ({ savedCarbon, ecoPo
       <div className="glass-card forest-container-card grid-2" style={{ alignItems: 'center' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-            <Trees color="var(--primary)" size={24} />
-            <h1 style={{ fontSize: '1.75rem' }}>My Virtual Forest</h1>
+            <Trees color="var(--primary)" size={20} style={{ flexShrink: 0 }} />
+            <h1 style={{ fontSize: 'clamp(1.2rem, 4vw, 1.75rem)' }}>My Virtual Forest</h1>
           </div>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: '1.5', marginBottom: '1.5rem' }}>
             Every daily micro-action has a real effect. Here, we translate your carbon savings directly into a sprouting ecosystem. A mature tree absorbs roughly <strong>20 kg of CO₂</strong> per year. Your green choices support this forest!
           </p>
 
-          <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
             <div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Trees Grown</div>
               <div style={{ fontSize: '1.8rem', fontWeight: '800', color: 'white' }}>
                 {totalTrees} {hasSprout && <span style={{ fontSize: '0.9rem', color: 'var(--primary-light)', fontWeight: '500' }}>+ 1 sprout</span>}
               </div>
             </div>
-            <div style={{ borderLeft: '1px solid var(--border-color)', paddingLeft: '2rem' }}>
+            <div style={{ borderLeft: '1px solid var(--border-color)', paddingLeft: '1.5rem' }}>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Next Tree Progress</div>
               <div style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--secondary)' }}>
                 {sproutPercentage.toFixed(0)}%

@@ -201,31 +201,32 @@ function App() {
 
       <div className="app-container">
         {/* Header bar */}
-        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.25rem', flexWrap: 'wrap', gap: '1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem', flexWrap: 'wrap', gap: '0.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', minWidth: 0 }}>
             <div style={{
               background: 'linear-gradient(135deg, var(--primary) 0%, #0d9488 100%)',
-              padding: '0.5rem',
+              padding: '0.4rem',
               borderRadius: 'var(--radius-sm)',
               boxShadow: '0 4px 14px rgba(16, 185, 129, 0.4)',
+              flexShrink: 0,
             }}>
-              <Leaf size={24} color="white" />
+              <Leaf size={20} color="white" />
             </div>
-            <div>
-              <h1 style={{ fontSize: '1.6rem', fontWeight: '800', fontFamily: 'var(--font-display)', letterSpacing: '-0.03em' }}>
+            <div style={{ minWidth: 0 }}>
+              <h1 style={{ fontSize: 'clamp(1.1rem, 4vw, 1.6rem)', fontWeight: '800', fontFamily: 'var(--font-display)', letterSpacing: '-0.03em' }}>
                 Eco<span className="gradient-text">Sphere</span>
               </h1>
-              <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600' }}>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600' }}>
                 Daily Footprint Logger
               </span>
             </div>
           </div>
 
-          <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <button 
               onClick={handleResetHistory}
               className="btn-secondary"
-              style={{ padding: '0.5rem 0.75rem', fontSize: '0.8rem', display: 'flex', gap: '0.35rem', borderRadius: 'var(--radius-sm)' }}
+              style={{ padding: '0.45rem 0.65rem', fontSize: '0.75rem', display: 'flex', gap: '0.35rem', borderRadius: 'var(--radius-sm)', whiteSpace: 'nowrap' }}
               title="Reset All Logs History"
             >
               Clear Records
@@ -238,21 +239,21 @@ function App() {
           background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(217, 119, 6, 0.22) 100%)',
           border: '1px solid rgba(245, 158, 11, 0.4)',
           boxShadow: '0 8px 32px rgba(245, 158, 11, 0.15)',
-          padding: '1.2rem 1.8rem',
+          padding: '1rem 1.25rem',
           borderRadius: 'var(--radius-md)',
-          marginBottom: '2rem',
+          marginBottom: '1.5rem',
           display: 'flex',
-          gap: '1rem',
-          alignItems: 'center',
+          gap: '0.75rem',
+          alignItems: 'flex-start',
           position: 'relative',
           zIndex: 10
         }}>
-          <span style={{ fontSize: '1.75rem', filter: 'drop-shadow(0 0 8px rgba(245, 158, 11, 0.6))' }}>💡</span>
-          <div>
-            <strong style={{ color: '#fbbf24', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '0.25rem' }}>
+          <span style={{ fontSize: '1.4rem', filter: 'drop-shadow(0 0 8px rgba(245, 158, 11, 0.6))', flexShrink: 0 }}>💡</span>
+          <div style={{ minWidth: 0 }}>
+            <strong style={{ color: '#fbbf24', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', display: 'block', marginBottom: '0.2rem' }}>
               Daily Eco Tip
             </strong>
-            <span style={{ fontSize: '0.95rem', color: '#fef08a', fontWeight: '700', lineHeight: '1.4' }}>
+            <span style={{ fontSize: '0.88rem', color: '#fef08a', fontWeight: '700', lineHeight: '1.4', wordBreak: 'break-word' }}>
               {getDailyTip()}
             </span>
           </div>

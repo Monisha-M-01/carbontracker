@@ -36,7 +36,7 @@ export const HistoryLog: React.FC<HistoryLogProps> = ({ history, totalSavedCarbo
           </span>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: '1px solid var(--border-color)', borderRight: '1px solid var(--border-color)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: '1px solid var(--border-color)', borderRight: '1px solid var(--border-color)', paddingLeft: '0.75rem', paddingRight: '0.75rem' }}>
           <span className="metric-label">Lifetime CO₂e Saved</span>
           <span className="metric-value" style={{ color: 'var(--primary-light)' }}>
             {totalSavedCarbon.toFixed(1)} <span style={{ fontSize: '1.25rem', fontWeight: '500' }}>kg</span>

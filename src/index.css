@@ -43,6 +43,15 @@
   --transition-bounce: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+html {
+  background: #040d08;
+}
+
+#root {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -50,12 +59,15 @@
 }
 
 body {
-  background: linear-gradient(135deg, #031209 0%, #04222b 30%, #090e21 60%, #051c0f 100%);
+  background-color: #040d08;
+  background-image: linear-gradient(135deg, #031209 0%, #04222b 30%, #090e21 60%, #051c0f 100%);
   background-size: 400% 400%;
+  background-attachment: fixed;
   animation: colorShift 20s ease infinite;
   color: var(--text-primary);
   font-family: var(--font-sans);
   min-height: 100vh;
+  min-height: 100dvh;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   position: relative;
@@ -821,7 +833,7 @@ h1, h2, h3, h4 {
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--border-color);
   padding: 0.5rem 1rem;
-  borderRadius: var(--radius-md);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-main);
   user-select: none;
   transition: var(--transition-bounce);
@@ -1306,5 +1318,380 @@ h1, h2, h3, h4 {
 .cinematic-particles .particle:nth-child(4) { left: 75%; animation-duration: 15s; animation-delay: 1s; width: 5px; height: 5px; }
 .cinematic-particles .particle:nth-child(5) { left: 85%; animation-duration: 9s; animation-delay: 3s; }
 
+/* ============================================================
+   METRIC CLASSES (used by summary banners across components)
+   ============================================================ */
+.metric-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.25rem;
+}
 
+.metric-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVENESS
+   ============================================================ */
+
+/* ---- Small phones (max-width: 480px) ---- */
+@media (max-width: 480px) {
+
+  /* Reduce app container padding */
+  .app-container {
+    padding: 1rem 0.75rem;
+  }
+
+  /* Reduce glass card padding on small screens */
+  .glass-card {
+    padding: 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  /* Metric values scale down */
+  .metric-value {
+    font-size: 1.4rem;
+  }
+
+  .metric-label {
+    font-size: 0.65rem;
+  }
+
+  /* Nav tabs: horizontal scroll with smaller buttons */
+  .nav-tabs {
+    gap: 0.25rem;
+    padding: 0.25rem;
+    margin-bottom: 1.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-tab-btn {
+    font-size: 0.78rem;
+    padding: 0.6rem 0.75rem;
+    gap: 0.35rem;
+  }
+
+  .nav-tab-btn svg {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+  }
+
+  /* Summary banner grids: stack vertically on small phones */
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* EcoSapling mascot: compact on mobile */
+  .sapling-container {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.35rem 0.6rem;
+    gap: 0.4rem;
+  }
+
+  .sapling-container .sapling-bounce {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .sapling-container > div:nth-child(2) span:first-child {
+    font-size: 0.6rem !important;
+  }
+
+  .sapling-container > div:nth-child(2) span:last-child {
+    font-size: 0.72rem !important;
+  }
+
+  /* Speech bubble: position below on mobile instead of left */
+  .sapling-bubble {
+    position: fixed;
+    top: auto;
+    bottom: 1rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    width: auto;
+    max-width: none;
+    transform: translateY(10px);
+    transform-origin: top center;
+  }
+
+  .sapling-container:hover .sapling-bubble,
+  .sapling-container.active .sapling-bubble {
+    transform: translateY(0);
+  }
+
+  .sapling-bubble::after {
+    display: none;
+  }
+
+  /* Forest canvas: reduce min-height */
+  .forest-canvas {
+    min-height: 240px;
+    padding: 1.25rem;
+  }
+
+  .forest-grid {
+    grid-template-columns: repeat(auto-fill, minmax(55px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .forest-tree-icon {
+    font-size: 1.8rem;
+  }
+
+  .forest-tree-stage {
+    font-size: 0.55rem;
+  }
+
+  /* Quote board */
+  .quote-board {
+    padding: 1rem 1.25rem;
+  }
+
+  .quote-text {
+    font-size: 0.95rem;
+  }
+
+  /* Option cards: more compact */
+  .option-card {
+    padding: 0.75rem;
+    gap: 0.65rem;
+  }
+
+  .option-card h4 {
+    font-size: 0.8rem !important;
+  }
+
+  /* Intro Modal */
+  .nature-modal-backdrop {
+    padding: 0.75rem;
+  }
+
+  .nature-modal-container {
+    padding: 2rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .nature-modal-container h1 {
+    font-size: 1.8rem !important;
+  }
+
+  .nature-modal-container p {
+    font-size: 0.88rem !important;
+  }
+
+  .heartbeat-pulse {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+  }
+
+  .nature-spin-ring {
+    width: 250px;
+    height: 250px;
+  }
+
+  /* Pledge grid: single column on small phones */
+  .pledge-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin: 1.25rem 0;
+  }
+
+  .pledge-card {
+    padding: 1rem 0.85rem;
+  }
+
+  /* Cinematic screen */
+  .cinematic-title {
+    font-size: 1.5rem;
+  }
+
+  .cinematic-text {
+    font-size: 0.95rem;
+  }
+
+  .cinematic-container {
+    padding: 1.25rem;
+  }
+
+  /* Ambient glow orbs: reduce size and blur for mobile performance */
+  .ambient-glow-orb {
+    filter: blur(80px);
+    opacity: 0.12;
+  }
+
+  .ambient-glow-orb-1 {
+    width: 50vw;
+    height: 50vw;
+  }
+
+  .ambient-glow-orb-2 {
+    width: 45vw;
+    height: 45vw;
+  }
+
+  .ambient-glow-orb-3 {
+    width: 35vw;
+    height: 35vw;
+  }
+
+  /* Falling leaves: reduce count impact by making them smaller */
+  .leaf-particle {
+    filter: none;
+  }
+
+  /* Slider thumb: bigger touch target */
+  .custom-slider::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .custom-slider {
+    height: 8px;
+  }
+
+  /* Form inputs: larger touch targets */
+  .form-input,
+  .form-select {
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+  }
+
+  /* Reduce the daily eco tip icon */
+  .app-container > div:nth-child(1) span[style*="1.75rem"] {
+    font-size: 1.25rem !important;
+  }
+}
+
+/* ---- Medium phones / small tablets (max-width: 768px) ---- */
+@media (max-width: 768px) {
+
+  .app-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .metric-value {
+    font-size: 1.6rem;
+  }
+
+  /* Nav tabs */
+  .nav-tab-btn {
+    font-size: 0.85rem;
+    padding: 0.65rem 0.9rem;
+  }
+
+  .nav-tab-btn svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  /* Summary banner 3-col: remove borders that look odd on stack */
+  .grid-3 > div {
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+  }
+
+  .grid-3 > div:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  /* EcoSapling: slightly compact */
+  .sapling-container {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.4rem 0.75rem;
+    gap: 0.5rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .sapling-container .sapling-bounce {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  /* Forest canvas */
+  .forest-canvas {
+    min-height: 280px;
+    padding: 1.5rem;
+  }
+
+  /* Intro Modal adjustments */
+  .nature-modal-container {
+    padding: 2.5rem 1.75rem;
+  }
+
+  .nature-modal-container h1 {
+    font-size: 2.2rem !important;
+  }
+
+  /* Pledge grid: 2 columns still fine at this size */
+  .pledge-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Cinematic */
+  .cinematic-title {
+    font-size: 1.8rem;
+  }
+
+  .cinematic-text {
+    font-size: 1rem;
+  }
+}
+
+/* ---- Ensure touch-friendly interactions on touch devices ---- */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .nav-tab-btn {
+    min-height: 44px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    min-height: 44px;
+  }
+
+  .option-card {
+    min-height: 48px;
+  }
+
+  /* Disable hover effects that cause sticky states on touch */
+  .glass-card-interactive:hover {
+    transform: none;
+  }
+
+  .forest-tile:hover {
+    transform: none;
+  }
+
+  /* Disable floating orb animations for performance */
+  .ambient-glow-orb {
+    animation: none;
+  }
+
+  .blue-lightning-overlay {
+    display: none;
+  }
+}
 

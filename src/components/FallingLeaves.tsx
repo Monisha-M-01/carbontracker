@@ -70,8 +70,12 @@ export const FallingLeaves: React.FC = () => {
     ];
     const generated: LeafParticle[] = [];
     
-    // Spawn 40 high-fidelity particles across the screen
-    for (let i = 0; i < 40; i++) {
+    // Reduce particle count on mobile for performance
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 15 : 40;
+    
+    // Spawn high-fidelity particles across the screen
+    for (let i = 0; i < particleCount; i++) {
       generated.push({
         id: i,
         left: Math.random() * 95,
