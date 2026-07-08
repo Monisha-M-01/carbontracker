@@ -88,7 +88,7 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>CO₂e footprint preview</span>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: '1px solid var(--border-color)', borderRight: '1px solid var(--border-color)', paddingLeft: '0.75rem', paddingRight: '0.75rem' }}>
+        <div className="metric-cell-bordered">
           <span className="metric-label">Daily Avg Target</span>
           <span className="metric-value" style={{ color: 'white' }}>
             5.5 <span style={{ fontSize: '1.25rem', fontWeight: '500' }}>kg</span>
@@ -96,7 +96,7 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Required for climate target</span>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="metric-cell">
           <span className="metric-label">Current Streak</span>
           <span className="metric-value" style={{ color: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
             🔥 {streak} Days
@@ -377,19 +377,7 @@ export const DailyLogger: React.FC<DailyLoggerProps> = ({ onSaveLog, streak }) =
 
       {/* Popup Success message */}
       {showSuccess && lastCalculation && (
-        <div className="glass-card animate-fade-in" style={{
-          position: 'fixed',
-          bottom: '1rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          borderLeft: '4px solid var(--primary)',
-          background: 'var(--bg-surface-solid)',
-          boxShadow: '0 10px 45px rgba(2, 10, 5, 0.7)',
-          padding: '1.25rem 1.5rem',
-          width: 'calc(100% - 2rem)',
-          maxWidth: '380px',
-          zIndex: 1000,
-        }}>
+        <div className="glass-card animate-fade-in success-toast">
           <h3 style={{ color: 'var(--primary-light)', display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1rem', marginBottom: '0.25rem' }}>
             <Check size={18} /> Footprint Logged!
           </h3>

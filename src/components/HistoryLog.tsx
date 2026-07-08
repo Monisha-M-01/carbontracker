@@ -36,7 +36,7 @@ export const HistoryLog: React.FC<HistoryLogProps> = ({ history, totalSavedCarbo
           </span>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', borderLeft: '1px solid var(--border-color)', borderRight: '1px solid var(--border-color)', paddingLeft: '0.75rem', paddingRight: '0.75rem' }}>
+        <div className="metric-cell-bordered">
           <span className="metric-label">Lifetime CO₂e Saved</span>
           <span className="metric-value" style={{ color: 'var(--primary-light)' }}>
             {totalSavedCarbon.toFixed(1)} <span style={{ fontSize: '1.25rem', fontWeight: '500' }}>kg</span>
@@ -44,7 +44,7 @@ export const HistoryLog: React.FC<HistoryLogProps> = ({ history, totalSavedCarbo
           <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Compared to standard baseline</span>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="metric-cell">
           <span className="metric-label">Avg Footprint</span>
           <span className="metric-value" style={{ color: 'var(--secondary)' }}>
             {(history.reduce((sum, e) => sum + e.footprint, 0) / Math.max(1, history.length)).toFixed(1)} <span style={{ fontSize: '1.25rem', fontWeight: '500' }}>kg</span>
@@ -65,7 +65,7 @@ export const HistoryLog: React.FC<HistoryLogProps> = ({ history, totalSavedCarbo
               Log at least one day's activities to see your trend chart.
             </div>
           ) : (
-            <div style={{ width: '100%', overflowX: 'auto' }}>
+            <div className="chart-wrapper">
               <svg 
                 viewBox={`0 0 ${chartWidth} ${chartHeight + padding}`} 
                 style={{ width: '100%', height: 'auto', display: 'block' }}

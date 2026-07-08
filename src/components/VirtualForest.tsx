@@ -83,14 +83,14 @@ export const VirtualForest: React.FC<VirtualForestProps> = ({ savedCarbon, ecoPo
             Every daily micro-action has a real effect. Here, we translate your carbon savings directly into a sprouting ecosystem. A mature tree absorbs roughly <strong>20 kg of CO₂</strong> per year. Your green choices support this forest!
           </p>
 
-          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap' }}>
+          <div className="stats-row">
             <div>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Trees Grown</div>
               <div style={{ fontSize: '1.8rem', fontWeight: '800', color: 'white' }}>
                 {totalTrees} {hasSprout && <span style={{ fontSize: '0.9rem', color: 'var(--primary-light)', fontWeight: '500' }}>+ 1 sprout</span>}
               </div>
             </div>
-            <div style={{ borderLeft: '1px solid var(--border-color)', paddingLeft: '1.5rem' }}>
+            <div className="stats-row-divider">
               <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>Next Tree Progress</div>
               <div style={{ fontSize: '1.8rem', fontWeight: '800', color: 'var(--secondary)' }}>
                 {sproutPercentage.toFixed(0)}%

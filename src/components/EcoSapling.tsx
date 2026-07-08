@@ -87,15 +87,8 @@ export const EcoSapling: React.FC<EcoSaplingProps> = ({ savedCarbon, todaySaving
     >
       {/* Cartoon Tree SVG */}
       <div 
-        className="sapling-bounce tree-body-move" 
-        style={{ 
-          width: '60px', 
-          height: '60px', 
-          display: 'flex', 
-          alignItems: 'center', 
-          justifyContent: 'center',
-          transform: `rotate(${tiltAngle}deg)`
-        }}
+        className="sapling-bounce tree-body-move sapling-svg-wrapper" 
+        style={{ transform: `rotate(${tiltAngle}deg)` }}
       >
         <svg viewBox="0 0 24 24" width="100%" height="100%" style={{ overflow: 'visible' }}>
           {/* Terracotta pot */}
